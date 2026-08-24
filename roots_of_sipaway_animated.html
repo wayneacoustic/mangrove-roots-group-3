@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R.O.O.T.S. OF SIPAWAY — Mangrove Guardian</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+:root{
+  --deep:#063f35;--green:#075c4c;--mint:#8de3b5;--soft:#e1f4e9;
+  --cream:#fff8df;--text:#173d35;--muted:#60746e;
+}
+body{font-family:Arial,Helvetica,sans-serif;background:#f5faf7;color:var(--text);line-height:1.7;overflow-x:hidden}
+a{text-decoration:none}button,input{font:inherit}
+header{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(255,255,255,.82);backdrop-filter:blur(16px);border-bottom:1px solid #dbe9e2}
+nav{max-width:1200px;margin:auto;padding:12px 25px;display:flex;justify-content:space-between;align-items:center}
+.logo{display:flex;align-items:center;gap:10px;color:var(--green);font-size:14px;font-weight:800}
+.logo-icon{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;background:var(--green);color:#fff;box-shadow:0 8px 25px #075c4c33}
+nav ul{list-style:none;display:flex;gap:20px;align-items:center}
+nav a{color:#49665e;font-size:13px;font-weight:700;transition:.2s}
+nav a:hover{color:#08745c}
+.nav-button{padding:9px 15px;border-radius:20px;background:var(--green);color:#fff!important}
+
+.hero{min-height:100vh;padding:150px 8% 90px;display:flex;align-items:center;color:#fff;position:relative;overflow:hidden;background:
+linear-gradient(90deg,rgba(1,43,36,.96),rgba(2,65,52,.72),rgba(2,65,52,.18)),
+url("mangrove.jpg") center/cover fixed}
+.hero:after{content:"";position:absolute;inset:auto 0 0;height:25%;background:linear-gradient(transparent,#f5faf7);pointer-events:none}
+.hero-container{width:100%;max-width:1200px;margin:auto;position:relative;z-index:2}
+.hero-content{max-width:760px;animation:heroIn 1s ease both}
+.small-title{display:inline-block;padding:7px 14px;border:1px solid #ffffff59;background:#ffffff14;border-radius:30px;font-size:12px;font-weight:bold}
+.hero h1{margin:25px 0;font-size:clamp(50px,7vw,88px);line-height:.95;letter-spacing:-4px}
+.hero h1 span{color:var(--mint)}
+.hero p{max-width:700px;color:#e0f2eb;font-size:18px}
+.buttons{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap}
+.button{display:inline-block;padding:13px 20px;border-radius:13px;font-weight:bold;transition:.25s}
+.button:hover{transform:translateY(-4px) scale(1.02)}
+.white-button{background:#fff;color:var(--green)}
+.outline-button{color:#fff;border:1px solid #ffffff66;background:#ffffff0f}
+
+section{padding:90px 8%;position:relative}
+.container{max-width:1200px;margin:auto}
+.section-label{color:#08745c;font-size:12px;font-weight:bold;letter-spacing:1.5px}
+h2{margin:10px 0;color:var(--deep);font-size:clamp(35px,5vw,55px);line-height:1.1;letter-spacing:-2px}
+.section-description{max-width:750px;color:var(--muted)}
+.about-grid,.problem-grid,.conservation-grid{margin-top:40px;display:grid;grid-template-columns:1.2fr .8fr;gap:25px}
+.card{padding:32px;background:#fff;border-radius:25px;border:1px solid #075c4c14;box-shadow:0 18px 45px #04362d17}
+.quote{display:flex;align-items:center;background:#f4ecd6;color:#064137;font-size:26px;font-weight:bold;line-height:1.3}
+
+.benefits{background:var(--soft)}
+.benefit-grid{margin-top:40px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.benefit-card{padding:27px;background:#fffffff0;border-radius:22px;transition:.3s;box-shadow:0 10px 25px #04362d0b}
+.benefit-card:hover{transform:translateY(-10px) rotate(-1deg);box-shadow:0 20px 35px #04362d18}
+.icon{width:50px;height:50px;display:grid;place-items:center;margin-bottom:15px;border-radius:14px;background:var(--green);color:#fff;font-size:22px}
+.benefit-card h3,.learning-card h3{color:#064137;margin-bottom:7px}.benefit-card p,.learning-card>p{color:#61756f;font-size:14px}
+
+.problem{background:#fff}
+.threat-list{list-style:none;margin-top:20px}.threat-list li{padding:13px;margin-bottom:10px;background:#f5f8f5;border-radius:12px;font-weight:bold;transition:.2s}.threat-list li:hover{transform:translateX(8px)}.threat-list li:before{content:"●";margin-right:10px;color:#d36c4c}
+.impact{background:var(--deep);color:#fff}.impact h3{margin-bottom:15px;font-size:28px}.impact p{color:#d7ebe4}
+
+.conservation{background:#edf7f1}
+.conservation-grid{grid-template-columns:1fr 1fr}.conservation-card{padding:32px;background:#fff;border-radius:25px;box-shadow:0 15px 40px #04362d14}.conservation-card h3{color:var(--green);margin-bottom:15px;font-size:25px}
+.organization{display:grid;gap:12px;margin-top:20px}.organization div{padding:15px;background:#f3f8f5;border-radius:13px;font-weight:bold;color:#24564b;transition:.2s}.organization div:hover{transform:translateX(7px)}
+
+.plan{background:#f5f9f6}.action-grid{margin-top:40px;display:grid;grid-template-columns:repeat(2,1fr);gap:17px}.action{padding:23px;display:flex;gap:16px;background:#fff;border-radius:20px;box-shadow:0 10px 30px #04362d0f;transition:.25s}.action:hover{transform:translateY(-5px) scale(1.01)}.number{min-width:44px;height:44px;display:grid;place-items:center;border-radius:13px;background:#08745c;color:#fff;font-weight:bold}
+
+.learning-zone{background:var(--cream)}.learning-title{text-align:center;max-width:750px;margin:auto}.learning-title p{color:#647770}.learning-grid{margin-top:45px;display:grid;grid-template-columns:repeat(2,1fr);gap:22px}.learning-card{background:#fff;padding:30px;border-radius:25px;box-shadow:0 12px 35px #04362d14}.learning-icon{font-size:40px}.learning-card h3{font-size:25px}
+.fact-buttons{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}.fact-button{border:none;padding:10px 14px;border-radius:20px;background:#e2f3e8;color:var(--green);font-weight:bold;cursor:pointer;transition:.2s}.fact-button:hover{background:var(--green);color:#fff;transform:translateY(-2px)}.fact-display{margin-top:18px;padding:18px;border-radius:15px;background:#f3f8f5;color:#315d52;min-height:70px;animation:pop .3s ease}
+.quiz-question{margin-top:20px;padding:18px;background:#f5f8f5;border-radius:15px}.quiz-question p{font-weight:bold}.quiz-option{width:100%;text-align:left;padding:11px 14px;margin:5px 0;border:1px solid #d9e7df;border-radius:10px;background:#fff;cursor:pointer;color:#49665e;transition:.2s}.quiz-option:hover{background:#e7f5ed;transform:translateX(4px)}.quiz-option.correct{background:#ccefd9}.quiz-option.wrong{background:#ffe0d9}.quiz-button,.start-game,.play-again{border:none;padding:12px 20px;border-radius:12px;background:#08745c;color:#fff;font-weight:bold;cursor:pointer}.quiz-button{margin-top:15px}.quiz-result{margin-top:20px;padding:17px;border-radius:15px;background:var(--deep);color:#fff;text-align:center;display:none}
+
+.play-intro{background:linear-gradient(135deg,var(--deep),#08745c);color:#fff;text-align:center}.play-intro h2{color:#fff}.play-intro p{max-width:700px;margin:15px auto;color:#d9eee7}.play-now{margin-top:25px;padding:15px 25px;border:none;border-radius:15px;background:var(--mint);color:var(--deep);font-weight:bold;cursor:pointer;font-size:16px;box-shadow:0 10px 30px #0003;transition:.25s}.play-now:hover{transform:translateY(-4px) scale(1.04)}
+
+.game-section{min-height:100vh;background:linear-gradient(#e6f7ed,#d7eee1);position:relative;overflow:hidden}
+.game-title{text-align:center;margin-bottom:25px}.game-title h2{color:var(--deep)}.game-title p{color:#5e756d}
+.game-setup{max-width:600px;margin:0 auto 30px;padding:25px;background:#fff;border-radius:25px;box-shadow:0 15px 35px #04362d1a;text-align:center}
+.name-input{width:100%;padding:13px;border:2px solid #d8e9e0;border-radius:12px;outline:none;font-size:15px}.name-input:focus{border-color:#08745c}
+.custom-buttons{margin-top:15px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap}.custom-btn{border:none;padding:10px 15px;border-radius:12px;background:#e3f3e9;color:#075c4c;font-weight:bold;cursor:pointer}.custom-btn.active{background:#075c4c;color:#fff}.start-game{margin-top:18px;width:100%;padding:14px;font-size:15px}
+.game-info{max-width:900px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:15px}.game-stat{padding:10px 16px;background:#fff;border-radius:15px;box-shadow:0 5px 20px #04362d12;font-weight:bold;color:#075c4c}
+.game-board{position:relative;width:min(900px,100%);height:500px;margin:auto;overflow:hidden;border:6px solid #075c4c;border-radius:25px;background:radial-gradient(circle at 20% 25%,#ffffff73 0 35px,transparent 36px),radial-gradient(circle at 75% 15%,#ffffff4d 0 45px,transparent 46px),linear-gradient(#aee3cf 0 40%,#6ec7a4 40% 68%,#4eae83 68% 100%);box-shadow:0 25px 60px #04362d26}
+.water{position:absolute;bottom:0;left:0;width:100%;height:32%;background:repeating-linear-gradient(0deg,#ffffff14 0 5px,transparent 5px 14px),#4aa983;animation:water 2s linear infinite}
+.tree{position:absolute;font-size:55px;user-select:none;filter:drop-shadow(3px 3px 0 #0000001f);animation:sway 2.5s ease-in-out infinite}.tree.one{left:5%;bottom:25%}.tree.two{right:5%;bottom:27%;animation-delay:.5s}.tree.three{left:45%;bottom:27%;animation-delay:1s}
+.rock{position:absolute;font-size:35px}
+.player{position:absolute;width:48px;height:62px;z-index:20;transition:left .08s,top .08s;user-select:none;filter:drop-shadow(0 5px 4px #0003)}.player-body{position:absolute;left:8px;top:18px;width:32px;height:34px;background:#3498db;border:3px solid #173d35}.player-head{position:absolute;left:9px;top:0;width:30px;height:27px;background:#f1c49b;border:3px solid #173d35}.player-hat{position:absolute;left:5px;top:-7px;width:38px;height:9px;background:#e76f51;border:3px solid #173d35;z-index:3}.player-leg{position:absolute;bottom:0;width:10px;height:14px;background:#263238;border:2px solid #173d35}.player-leg.left{left:10px}.player-leg.right{right:10px}.player-name{position:absolute;top:-28px;left:50%;transform:translateX(-50%);white-space:nowrap;padding:2px 7px;border-radius:8px;background:#ffffffe8;color:#075c4c;font-size:10px;font-weight:bold}
+.trash{position:absolute;width:30px;height:30px;display:flex;justify-content:center;align-items:center;font-size:24px;z-index:10;user-select:none;animation:trashFloat 1.5s infinite alternate;cursor:pointer}
+.game-message{max-width:900px;margin:15px auto;padding:12px 18px;background:#fff;border-radius:15px;text-align:center;color:#075c4c;font-weight:bold;box-shadow:0 5px 20px #04362d12}
+.pickup-button{display:block;margin:15px auto 0;padding:14px 30px;border:none;border-radius:14px;background:#e76f51;color:#fff;font-weight:bold;font-size:16px;cursor:pointer;box-shadow:0 5px 0 #a64b35}.pickup-button:active{transform:translateY(4px);box-shadow:none}
+.controls{width:200px;margin:20px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.control{width:60px;height:50px;border:none;border-radius:13px;background:#075c4c;color:#fff;font-size:20px;cursor:pointer;box-shadow:0 4px 0 #043d32}.control:active{transform:translateY(3px);box-shadow:none}.empty{visibility:hidden}
+.game-end{display:none;max-width:600px;margin:25px auto;padding:35px;text-align:center;background:#fff;border-radius:25px;box-shadow:0 15px 45px #04362d1f}.game-end.show{display:block;animation:pop .5s ease}.trophy{font-size:70px}.game-end h3{color:#075c4c;font-size:30px}.game-end p{color:#60746e}
+
+.goal{background:var(--deep);color:#fff}.goal h2{color:#fff}.goal-description{max-width:750px;color:#d8eee6}.goal-grid{margin-top:40px;display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.goal-card{padding:25px;border-radius:20px;background:#ffffff17;border:1px solid #ffffff1f;transition:.25s}.goal-card:hover{transform:translateY(-7px);background:#ffffff22}.goal-number{font-size:30px;font-weight:bold;color:var(--mint)}.goal-card p{margin-top:10px;color:#d8eee6}
+.references{background:#fff}.reference-list{max-width:900px;margin-top:30px}.reference-list p{margin-bottom:15px;padding:15px 18px;background:#f4f8f5;border-left:4px solid #08745c;border-radius:8px;color:#536b64;font-size:14px}
+footer{padding:30px 8%;background:#022f28;color:#b9d6cd;font-size:13px}.footer-content{max-width:1200px;margin:auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer-title{color:var(--mint);font-weight:bold}
+
+.reveal{opacity:0;transform:translateY(35px);transition:opacity .8s ease,transform .8s ease}.reveal.visible{opacity:1;transform:none}
+.leaf{position:fixed;top:-40px;z-index:9999;pointer-events:none;animation:fall linear forwards;font-size:20px}
+@keyframes heroIn{from{opacity:0;transform:translateY(35px)}to{opacity:1;transform:none}}
+@keyframes pop{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}
+@keyframes sway{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(3deg)}}
+@keyframes water{from{background-position:0 0}to{background-position:0 28px}}
+@keyframes trashFloat{from{transform:translateY(0) rotate(-3deg)}to{transform:translateY(-6px) rotate(3deg)}}
+@keyframes fall{to{transform:translate(var(--drift),110vh) rotate(540deg);opacity:.1}}
+
+@media(max-width:900px){
+nav ul li:not(:last-child){display:none}.benefit-grid{grid-template-columns:repeat(2,1fr)}
+.about-grid,.problem-grid,.conservation-grid,.learning-grid{grid-template-columns:1fr}.action-grid{grid-template-columns:1fr}.goal-grid{grid-template-columns:repeat(2,1fr)}.game-board{height:430px}
+}
+@media(max-width:550px){
+section{padding:70px 20px}.hero{padding:120px 20px 70px;background-attachment:scroll}.hero h1{font-size:51px;letter-spacing:-2px}.hero p{font-size:16px}.benefit-grid,.goal-grid{grid-template-columns:1fr}.game-board{height:400px}.game-info{justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<header><nav>
+<a href="#home" class="logo"><span class="logo-icon">🌿</span>R.O.O.T.S. OF SIPAWAY</a>
+<ul><li><a href="#about">About</a></li><li><a href="#why">Why Mangroves</a></li><li><a href="#learn">Learn</a></li><li><a href="#play">🎮 Play</a></li><li><a href="#goal" class="nav-button">Our Goal</a></li></ul>
+</nav></header>
+
+<section class="hero" id="home"><div class="hero-container"><div class="hero-content">
+<span class="small-title">🌊 GROUP 2 · MANGROVE ADVOCATES</span>
+<h1>Protect <span>Sipaway.</span><br>Protect our future.</h1>
+<p>The Sipaway Island Mangrove Forest is more than just a collection of trees along the coast. It is a vital coastal ecosystem that provides habitats for marine life, protects the coastline, supports local fishermen, and helps absorb carbon from the atmosphere.</p>
+<div class="buttons"><a href="#about" class="button white-button">Explore Our Advocacy ↓</a><a href="#learn" class="button outline-button">Learn First 🌱</a></div>
+</div></div></section>
+
+<section id="about" class="reveal"><div class="container">
+<div class="section-label">01 · ABOUT SIPAWAY'S MANGROVES</div><h2>What Are Mangroves?</h2><p class="section-description">Mangroves are salt-tolerant trees that grow along coastlines.</p>
+<div class="about-grid"><div class="card"><p>In Sipaway Island, the mangrove forest serves as an important habitat for fish, crabs, shellfish, birds, and other wildlife.</p><br><p>The mangrove forest is located in Sipaway Island, San Carlos City, Negros Occidental.</p><br><p>Aside from mangroves, Sipaway Island is also rich in coral reefs, marine resources, agricultural land, coconut plantations, and clean coastal waters.</p><br><p>These natural resources support fishing, agriculture, ecotourism, and the livelihood of the local community.</p></div><div class="card quote">“Protect Our Mangroves,<br><br>Protect Our Future.”</div></div>
+</div></section>
+
+<section class="benefits reveal" id="why"><div class="container">
+<div class="section-label">02 · WHY DO MANGROVES MATTER?</div><h2>Why should we protect them?</h2><p class="section-description">Mangroves provide important benefits to Sipaway Island and its community.</p>
+<div class="benefit-grid">
+<div class="benefit-card"><div class="icon">🛡️</div><h3>Coastal Protection</h3><p>Mangroves act as a natural shield that helps protect coastlines from strong waves, storm surges, and coastal erosion.</p></div>
+<div class="benefit-card"><div class="icon">🐟</div><h3>Marine Habitat</h3><p>Mangroves provide shelter and habitat for fish, crabs, birds, and other wildlife.</p></div>
+<div class="benefit-card"><div class="icon">🤝</div><h3>Community Livelihood</h3><p>Mangroves support marine life that contributes to food security and the daily income of local fishermen.</p></div>
+<div class="benefit-card"><div class="icon">☁️</div><h3>Climate Benefits</h3><p>Mangroves help fight climate change by absorbing carbon from the air.</p></div>
+</div></div></section>
+
+<section class="problem reveal"><div class="container">
+<div class="section-label">03 · THE PROBLEM</div><h2>What Threatens Sipaway's Mangroves?</h2><p class="section-description">Although the mangrove forest is generally healthy in many areas, it continues to face threats caused by human activities.</p>
+<div class="problem-grid"><div class="card"><h3>Major Threats</h3><ul class="threat-list"><li>Illegal cutting of mangrove trees</li><li>Improper waste disposal</li><li>Pollution</li><li>Oil or hazardous-material spills</li><li>Destructive fishing practices</li></ul></div>
+<div class="card impact"><h3>The problem affects more than trees.</h3><p>These activities can damage mangrove forests, coral reefs, and other marine ecosystems.</p><br><p>They can threaten marine habitats, contribute to declining fish populations, reduce biodiversity, and affect the livelihood of local fishermen.</p><br><p>Polluted waters and damaged coastal areas may also make the island less attractive to tourists.</p></div></div>
+</div></section>
+
+<section class="conservation reveal"><div class="container">
+<div class="section-label">04 · CONSERVATION</div><h2>Community Conservation Efforts</h2>
+<div class="conservation-grid"><div class="conservation-card"><h3>A Healthy Forest</h3><p>The mangrove forest in Sipaway Island is healthy in many areas and is generally well-maintained because of community conservation efforts.</p><br><p>Conservation initiatives are led by the Sipaway Eco-tourism Workers Association (SETWA) under the municipal Biodiversity and Landscape Approach in Nature Conservation (BALANCE) Program.</p></div>
+<div class="conservation-card"><h3>Conservation Partnerships</h3><p>These efforts align with the Negros Island Biodiversity Strategy and Action Plan (NIBSAP) 2018–2028.</p><div class="organization"><div>🇬🇧 UK Government</div><div>🌎 UNDP-BIOFIN</div><div>🌱 Philippine Biodiversity Conservation Foundation</div></div></div></div>
+</div></section>
+
+<section class="plan reveal"><div class="container">
+<div class="section-label">05 · OUR ADVOCACY PLAN</div><h2>Small Actions, Big Impact.</h2><p class="section-description">As students, we can start with simple actions that we can practice in our school, homes, and community.</p>
+<div class="action-grid">
+<div class="action"><div class="number">1</div><div><h3>Keep Our Coast Clean</h3><p>Always throw trash in the proper bins.</p></div></div>
+<div class="action"><div class="number">2</div><div><h3>Join Clean-Up Activities</h3><p>Participate in school or community coastal clean-up drives.</p></div></div>
+<div class="action"><div class="number">3</div><div><h3>Reduce Our Waste</h3><p>Use reusable bottles, containers, and bags when possible.</p></div></div>
+<div class="action"><div class="number">4</div><div><h3>Spread the Word</h3><p>Share simple facts about mangroves with classmates, friends, and family.</p></div></div>
+<div class="action"><div class="number">5</div><div><h3>Respect Mangrove Areas</h3><p>Do not damage or disturb mangrove trees.</p></div></div>
+<div class="action"><div class="number">6</div><div><h3>Support Mangrove Activities</h3><p>Participate in mangrove planting and rehabilitation activities.</p></div></div>
+</div></div></section>
+
+<section class="learning-zone reveal" id="learn"><div class="container">
+<div class="learning-title"><div class="section-label">06 · LEARN FIRST</div><h2>Learn. Discover. Prepare. 🌱</h2><p>Before entering the game, learn a little about why mangroves matter!</p></div>
+<div class="learning-grid">
+<div class="learning-card"><div class="learning-icon">💡</div><h3>Did You Know?</h3><p>Click a topic to discover a mangrove fact.</p><div class="fact-buttons">
+<button class="fact-button" onclick="showFact(1)">🌊 Protection</button><button class="fact-button" onclick="showFact(2)">🐟 Wildlife</button><button class="fact-button" onclick="showFact(3)">🤝 Community</button><button class="fact-button" onclick="showFact(4)">☁️ Climate</button></div><div class="fact-display" id="factDisplay">Choose a fact above 👆</div></div>
+<div class="learning-card"><div class="learning-icon">🧠</div><h3>Mangrove Mini Quiz</h3><p>Get ready for the game!</p>
+<div class="quiz-question"><p>1. What do mangroves help protect coastlines from?</p><button class="quiz-option" onclick="answer(this,false)">A. Snow</button><button class="quiz-option" onclick="answer(this,true)">B. Strong waves and storm surges</button><button class="quiz-option" onclick="answer(this,false)">C. Earthquakes only</button></div>
+<div class="quiz-question"><p>2. Which animals can use mangroves as habitat?</p><button class="quiz-option" onclick="answer(this,false)">A. Only cats</button><button class="quiz-option" onclick="answer(this,true)">B. Fish, crabs, birds, and other wildlife</button><button class="quiz-option" onclick="answer(this,false)">C. Only farm animals</button></div>
+<div class="quiz-question"><p>3. Which is a good action for students?</p><button class="quiz-option" onclick="answer(this,true)">A. Join clean-up activities</button><button class="quiz-option" onclick="answer(this,false)">B. Throw trash near the coast</button><button class="quiz-option" onclick="answer(this,false)">C. Damage mangrove trees</button></div>
+<button class="quiz-button" onclick="showScore()">🏆 Check My Score</button><div class="quiz-result" id="quizResult"></div>
+</div></div></div></section>
+
+<section class="play-intro reveal" id="play"><div class="container">
+<div class="section-label" style="color:#8de3b5">07 · PLAY SECTION</div><h2>Ready to become a Mangrove Guardian? 🎮</h2><p>You've learned about the mangroves. Now it's time to put your knowledge into action!</p><p>Create your own little pixel character, give them a name, decorate them, and clean up the mangrove forest.</p>
+<button class="play-now" onclick="document.getElementById('game').scrollIntoView({behavior:'smooth'})">🎮 Enter the Game</button>
+</div></section>
+
+<section class="game-section" id="game"><div class="container">
+<div class="game-title"><div class="section-label">08 · MANGROVE CLEAN-UP GAME</div><h2>🌿 Mangrove Guardian</h2><p>Move around the island and pick up all the trash before it harms the environment.</p></div>
+<div class="game-setup" id="setup"><h3>🎨 Create Your Character</h3><input type="text" id="playerName" class="name-input" placeholder="Enter your character's name..." maxlength="12">
+<p style="margin-top:12px;color:#60746e;font-size:13px">Choose your shirt:</p><div class="custom-buttons">
+<button class="custom-btn active" onclick="chooseColor(this,'#3498db')">🔵 Blue</button><button class="custom-btn" onclick="chooseColor(this,'#e76f51')">🔴 Red</button><button class="custom-btn" onclick="chooseColor(this,'#8e6ac8')">🟣 Purple</button><button class="custom-btn" onclick="chooseColor(this,'#e2a93b')">🟡 Yellow</button><button class="custom-btn" onclick="chooseColor(this,'#42a86b')">🟢 Green</button>
+</div><p style="margin-top:12px;color:#60746e;font-size:13px">Choose your hat:</p><div class="custom-buttons">
+<button class="custom-btn active" onclick="chooseHat(this,'#e76f51')">🧢 Red</button><button class="custom-btn" onclick="chooseHat(this,'#3498db')">🔵 Blue</button><button class="custom-btn" onclick="chooseHat(this,'#e2a93b')">🟡 Yellow</button><button class="custom-btn" onclick="chooseHat(this,'#8e6ac8')">🟣 Purple</button>
+</div><button class="start-game" onclick="startGame()">🌱 Start My Clean-Up Adventure</button></div>
+
+<div class="game-info"><div class="game-stat">👤 <span id="nameDisplay">Guardian</span></div><div class="game-stat">🗑️ Trash: <span id="trashCount">0</span>/10</div><div class="game-stat">⭐ Score: <span id="scoreDisplay">0</span></div></div>
+<div class="game-board" id="gameBoard"><div class="water"></div><div class="tree one">🌳</div><div class="tree two">🌴</div><div class="tree three">🌿</div><div class="rock" style="left:25%;bottom:25%">🪨</div><div class="rock" style="right:25%;bottom:28%">🪨</div>
+<div class="player" id="player" style="left:50px;top:350px"><div class="player-name" id="characterName">Guardian</div><div class="player-hat" id="playerHat"></div><div class="player-head"></div><div class="player-body" id="playerBody"></div><div class="player-leg left"></div><div class="player-leg right"></div></div>
+<div class="trash" style="left:18%;top:65%" data-trash="1">🥤</div><div class="trash" style="left:35%;top:75%" data-trash="2">🛍️</div><div class="trash" style="left:58%;top:68%" data-trash="3">🥫</div><div class="trash" style="left:77%;top:74%" data-trash="4">🍾</div><div class="trash" style="left:12%;top:42%" data-trash="5">🧴</div><div class="trash" style="left:28%;top:35%" data-trash="6">📦</div><div class="trash" style="left:50%;top:45%" data-trash="7">🥤</div><div class="trash" style="left:68%;top:38%" data-trash="8">🛍️</div><div class="trash" style="left:84%;top:48%" data-trash="9">🥫</div><div class="trash" style="left:44%;top:25%" data-trash="10">🍾</div>
+</div>
+<div class="game-message" id="gameMessage">Use the arrow keys or WASD to move. Get close to trash and press PICK UP!</div>
+<button class="pickup-button" onclick="pickUpTrash()">🗑️ PICK UP TRASH</button>
+<div class="controls"><button class="control empty"></button><button class="control" onclick="movePlayer(0,-20)">⬆️</button><button class="control empty"></button><button class="control" onclick="movePlayer(-20,0)">⬅️</button><button class="control" onclick="movePlayer(0,20)">⬇️</button><button class="control" onclick="movePlayer(20,0)">➡️</button></div>
+<div class="game-end" id="gameEnd"><div class="trophy">🏆</div><h3>Mangrove Guardian!</h3><p>Amazing work, <b id="winnerName">Guardian</b>!</p><br><p>You collected all the trash and helped keep the mangrove forest clean.</p><br><strong style="color:#075c4c">⭐ Final Score: 100 points</strong><br><button class="play-again" onclick="restartGame()">🔄 Play Again</button></div>
+</div></section>
+
+<section class="goal reveal" id="goal"><div class="container"><div class="section-label" style="color:#8de3b5">09 · OUR GOAL</div><h2>What do we hope to achieve?</h2><p class="goal-description">Through R.O.O.T.S. OF SIPAWAY, we aim to increase environmental awareness, reduce pollution, encourage mangrove conservation, and strengthen community participation.</p>
+<div class="goal-grid"><div class="goal-card"><div class="goal-number">01</div><p>Increase environmental awareness</p></div><div class="goal-card"><div class="goal-number">02</div><p>Reduce pollution</p></div><div class="goal-card"><div class="goal-number">03</div><p>Encourage mangrove conservation</p></div><div class="goal-card"><div class="goal-number">04</div><p>Strengthen community participation</p></div></div></div></section>
+
+<section style="background:#f3f8f4;text-align:center" class="reveal"><div class="container"><div class="section-label">R.O.O.T.S. OF SIPAWAY</div><h2>Protect Our Mangroves, Protect Our Future.</h2><p class="section-description" style="margin:auto">Learn about the environment, make responsible choices, and become a Mangrove Guardian.</p><a href="#home" class="button" style="margin-top:25px;background:#075c4c;color:white">↑ Back to Home</a></div></section>
+
+<section class="references"><div class="container"><div class="section-label">10 · REFERENCES</div><h2>Sources</h2><div class="reference-list">
+<p>Office, C. I. (2024, February 16). SETWA presents Sipaway Ecotourism Management and Action Plan. San Carlos City.</p>
+<p>Susbilla, B. C. (2025, March 4). Sipaway Island’s visitor management, conservation protocols draw international attention. Philippine Information Agency.</p>
+<p>Philippine Biodiversity Conservation Foundation. (2018). Negros Island Biodiversity Strategy and Action Plan (2018–2028).</p>
+<p>Bongski Travels. (2025). Sipaway Island mangrove forest [Photograph]. Facebook.</p>
+</div></div></section>
+
+<footer><div class="footer-content"><div><span class="footer-title">R.O.O.T.S. OF SIPAWAY</span><br>Restoring Our Ocean-side Trees through Stewardship<br>Group 2 – Mangrove Advocates</div><div>“Protect Our Mangroves, Protect Our Future.”</div></div></footer>
+
+<script>
+let score=0,answered=0;
+function showFact(n){
+ const facts={
+ 1:"🌊 <b>Coastal Protection:</b><br>Mangroves help protect coastlines from strong waves, storm surges, and coastal erosion.",
+ 2:"🐟 <b>Marine Habitat:</b><br>Mangroves provide habitat and shelter for fish, crabs, birds, and other wildlife.",
+ 3:"🤝 <b>Community Livelihood:</b><br>Mangroves support marine life that contributes to food security and the livelihood of local fishermen.",
+ 4:"☁️ <b>Climate Benefits:</b><br>Mangroves help fight climate change by absorbing carbon from the air."
+ };
+ document.getElementById("factDisplay").innerHTML=facts[n];
+}
+function answer(btn,correct){
+ if(btn.classList.contains("correct")||btn.classList.contains("wrong"))return;
+ btn.classList.add(correct?"correct":"wrong");btn.innerHTML+=(correct?" ✓":" ✕");if(correct)score++;answered++;
+}
+function showScore(){
+ const r=document.getElementById("quizResult");r.style.display="block";
+ if(answered<3)r.innerHTML="👀 Answer all 3 questions first!";
+ else if(score===3)r.innerHTML="🌟 Perfect! 3/3 — You're a Mangrove Master!";
+ else if(score===2)r.innerHTML="🌱 Great job! 2/3 — You're becoming an Eco Champion!";
+ else r.innerHTML="🌿 Keep learning! Read the information above and try again!";
+}
+let playerX=50,playerY=350,playerColor="#3498db",hatColor="#e76f51",gameStarted=false,trashCollected=0,gameScore=0;
+function chooseColor(btn,color){playerColor=color;document.getElementById("playerBody").style.background=color;btn.parentElement.querySelectorAll(".custom-btn").forEach(b=>b.classList.remove("active"));btn.classList.add("active")}
+function chooseHat(btn,color){hatColor=color;document.getElementById("playerHat").style.background=color;btn.parentElement.querySelectorAll(".custom-btn").forEach(b=>b.classList.remove("active"));btn.classList.add("active")}
+function startGame(){
+ let name=document.getElementById("playerName").value.trim()||"Guardian";
+ document.getElementById("nameDisplay").innerText=name;document.getElementById("characterName").innerText=name;document.getElementById("winnerName").innerText=name;
+ gameStarted=true;document.getElementById("gameMessage").innerText="🌿 Clean the mangrove! Get close to trash and press PICK UP.";
+ document.getElementById("game").scrollIntoView({behavior:"smooth"});
+}
+function movePlayer(dx,dy){
+ if(!gameStarted)return;
+ const board=document.getElementById("gameBoard"),p=document.getElementById("player");
+ playerX=Math.max(0,Math.min(board.clientWidth-p.offsetWidth,playerX+dx));playerY=Math.max(0,Math.min(board.clientHeight-p.offsetHeight,playerY+dy));
+ p.style.left=playerX+"px";p.style.top=playerY+"px";checkNearbyTrash();
+}
+document.addEventListener("keydown",e=>{
+ if(!gameStarted)return;let k=e.key.toLowerCase();
+ const map={arrowup:[0,-20],w:[0,-20],arrowdown:[0,20],s:[0,20],arrowleft:[-20,0],a:[-20,0],arrowright:[20,0],d:[20,0]};
+ if(map[k]){e.preventDefault();movePlayer(...map[k])} if(k==="e"||k===" "){e.preventDefault();pickUpTrash()}
+});
+function getNearbyTrash(){
+ const p=document.getElementById("player"),pr=p.getBoundingClientRect();let closest=null,dist=Infinity;
+ document.querySelectorAll(".trash").forEach(t=>{
+  if(t.style.display==="none")return;const r=t.getBoundingClientRect(),px=pr.left+pr.width/2,py=pr.top+pr.height/2,tx=r.left+r.width/2,ty=r.top+r.height/2,d=Math.hypot(px-tx,py-ty);
+  if(d<dist){dist=d;closest=t}
+ });
+ return closest&&dist<78?closest:null;
+}
+function checkNearbyTrash(){
+ const t=getNearbyTrash(),m=document.getElementById("gameMessage");
+ m.innerHTML=t?"🗑️ You're close! Press <b>PICK UP TRASH</b> or press E.":"🌿 Explore the mangrove and find the trash!";
+}
+function pickUpTrash(){
+ if(!gameStarted)return;const t=getNearbyTrash(),m=document.getElementById("gameMessage");
+ if(!t){m.innerText="👀 You're not close enough to any trash! Move closer.";return}
+ t.style.display="none";trashCollected++;gameScore+=10;document.getElementById("trashCount").innerText=trashCollected;document.getElementById("scoreDisplay").innerText=gameScore;
+ m.innerText="✨ Nice! You helped clean the mangrove!";
+ if(trashCollected>=10)finishGame();
+}
+function finishGame(){gameStarted=false;document.getElementById("gameMessage").innerText="🌿 The mangrove is clean! You did it!";document.getElementById("gameEnd").classList.add("show")}
+function restartGame(){
+ trashCollected=0;gameScore=0;playerX=50;playerY=350;
+ document.getElementById("trashCount").innerText="0";document.getElementById("scoreDisplay").innerText="0";
+ document.getElementById("player").style.left="50px";document.getElementById("player").style.top="350px";
+ document.querySelectorAll(".trash").forEach(t=>t.style.display="flex");document.getElementById("gameEnd").classList.remove("show");
+ gameStarted=true;document.getElementById("gameMessage").innerText="🌱 New clean-up mission! Collect all 10 pieces of trash.";
+}
+document.getElementById("playerBody").style.background=playerColor;document.getElementById("playerHat").style.background=hatColor;
+
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible")}),{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+function createLeaf(){
+ const l=document.createElement("div");l.className="leaf";l.textContent=["🍃","🌿","🍂"][Math.floor(Math.random()*3)];
+ l.style.left=Math.random()*100+"vw";l.style.setProperty("--drift",(Math.random()*180-90)+"px");l.style.animationDuration=(5+Math.random()*5)+"s";
+ document.body.appendChild(l);setTimeout(()=>l.remove(),10000);
+}
+setInterval(createLeaf,900);
+</script>
+</body>
+</html>
